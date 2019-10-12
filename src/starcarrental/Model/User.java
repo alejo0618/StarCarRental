@@ -1,5 +1,5 @@
 package starcarrental.Model;
-// Generated 12/10/2019 10:35:55 AM by Hibernate Tools 4.3.1
+// Generated 12/10/2019 05:34:53 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -17,6 +17,7 @@ public class User  implements java.io.Serializable {
      private String lastName;
      private Date dateOfBirth;
      private String email;
+     private String userName;
      private String password;
      private Set employees = new HashSet(0);
      private Set carRentalManagements = new HashSet(0);
@@ -27,20 +28,21 @@ public class User  implements java.io.Serializable {
     }
 
 	
-    public User(int id, String name, String lastName, Date dateOfBirth, String email, String password) {
+    public User(int id, String name, String lastName, Date dateOfBirth, String email, String userName) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
         this.email = email;
-        this.password = password;
+        this.userName = userName;
     }
-    public User(int id, String name, String lastName, Date dateOfBirth, String email, String password, Set employees, Set carRentalManagements, Set userIdifications, Set userCreditCards) {
+    public User(int id, String name, String lastName, Date dateOfBirth, String email, String userName, String password, Set employees, Set carRentalManagements, Set userIdifications, Set userCreditCards) {
        this.id = id;
        this.name = name;
        this.lastName = lastName;
        this.dateOfBirth = dateOfBirth;
        this.email = email;
+       this.userName = userName;
        this.password = password;
        this.employees = employees;
        this.carRentalManagements = carRentalManagements;
@@ -82,6 +84,13 @@ public class User  implements java.io.Serializable {
     
     public void setEmail(String email) {
         this.email = email;
+    }
+    public String getUserName() {
+        return this.userName;
+    }
+    
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
     public String getPassword() {
         return this.password;

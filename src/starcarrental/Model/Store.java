@@ -1,5 +1,5 @@
 package starcarrental.Model;
-// Generated 12/10/2019 10:35:55 AM by Hibernate Tools 4.3.1
+// Generated 12/10/2019 05:34:53 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -122,7 +122,6 @@ public class Store  implements java.io.Serializable {
     public String toString() {
         return name;
     }
-
 
 }
 

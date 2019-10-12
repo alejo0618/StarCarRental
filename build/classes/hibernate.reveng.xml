@@ -2,26 +2,26 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="STAR_CAR_RENTAL" match-schema="dbo"/>
-  <table-filter match-name="UserCreditCard"/>
-  <table-filter match-name="UserIdification"/>
-  <table-filter match-name="Store"/>
-  <table-filter match-name="CarRentalManagement"/>
-  <table-filter match-name="Payment"/>
-  <table-filter match-name="StoreCampaing"/>
   <table-filter match-name="Campaing"/>
-  <table-filter match-name="CreditCardFranchise"/>
-  <table-filter match-name="Car"/>
-  <table-filter match-name="CarCategory"/>
-  <table-filter match-name="DriverAllowed"/>
   <table-filter match-name="EmployeeRol"/>
-  <table-filter match-name="Driver"/>
-  <table-filter match-name="MaintenanceType"/>
-  <table-filter match-name="PaymentType"/>
   <table-filter match-name="IdentificationType"/>
-  <table-filter match-name="CarFeeByCategory"/>
-  <table-filter match-name="CarDamageHistory"/>
-  <table-filter match-name="Employee"/>
-  <table-filter match-name="CarMaintananceHistory"/>
   <table-filter match-name="CreditCard"/>
+  <table-filter match-name="CarDamageHistory"/>
+  <table-filter match-name="MaintenanceType"/>
+  <table-filter match-name="Car"/>
+  <table-filter match-name="StoreCampaing"/>
+  <table-filter match-name="UserIdification"/>
+  <table-filter match-name="PaymentType"/>
+  <table-filter match-name="CarMaintananceHistory"/>
+  <table-filter match-name="Employee"/>
+  <table-filter match-name="CarRentalManagement"/>
   <table-filter match-name="User"/>
+  <table-filter match-name="CreditCardFranchise"/>
+  <table-filter match-name="UserCreditCard"/>
+  <table-filter match-name="Store"/>
+  <table-filter match-name="DriverAllowed"/>
+  <table-filter match-name="CarCategory"/>
+  <table-filter match-name="Payment"/>
+  <table-filter match-name="Driver"/>
+  <table-filter match-name="CarFeeByCategory"/>
 </hibernate-reverse-engineering>

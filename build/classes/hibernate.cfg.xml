@@ -8,27 +8,28 @@
     <property name="hibernate.connection.password">Pe3cOeh6lOL5</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory</property>
-    <mapping resource="starcarrental/Model/CreditCard.hbm.xml"/>
-    <mapping resource="starcarrental/Model/EmployeeRol.hbm.xml"/>
+    <property name="hibernate.enable_lazy_load_no_trans">true</property><property name="hibernate.enable_lazy_load_no_trans">true</property>
     <mapping resource="starcarrental/Model/StoreCampaing.hbm.xml"/>
-    <mapping resource="starcarrental/Model/IdentificationType.hbm.xml"/>
     <mapping resource="starcarrental/Model/DriverAllowed.hbm.xml"/>
-    <mapping resource="starcarrental/Model/CarFeeByCategory.hbm.xml"/>
-    <mapping resource="starcarrental/Model/UserCreditCard.hbm.xml"/>
-    <mapping resource="starcarrental/Model/PaymentType.hbm.xml"/>
-    <mapping resource="starcarrental/Model/UserIdification.hbm.xml"/>
-    <mapping resource="starcarrental/Model/CreditCardFranchise.hbm.xml"/>
     <mapping resource="starcarrental/Model/Employee.hbm.xml"/>
-    <mapping resource="starcarrental/Model/MaintenanceType.hbm.xml"/>
-    <mapping resource="starcarrental/Model/CarDamageHistory.hbm.xml"/>
-    <mapping resource="starcarrental/Model/Car.hbm.xml"/>
+    <mapping resource="starcarrental/Model/CreditCardFranchise.hbm.xml"/>
     <mapping resource="starcarrental/Model/CarMaintananceHistory.hbm.xml"/>
-    <mapping resource="starcarrental/Model/CarCategory.hbm.xml"/>
-    <mapping resource="starcarrental/Model/User.hbm.xml"/>
+    <mapping resource="starcarrental/Model/EmployeeRol.hbm.xml"/>
+    <mapping resource="starcarrental/Model/Car.hbm.xml"/>
     <mapping resource="starcarrental/Model/Campaing.hbm.xml"/>
-    <mapping resource="starcarrental/Model/CarRentalManagement.hbm.xml"/>
     <mapping resource="starcarrental/Model/Driver.hbm.xml"/>
-    <mapping resource="starcarrental/Model/Store.hbm.xml"/>
+    <mapping resource="starcarrental/Model/MaintenanceType.hbm.xml"/>
+    <mapping resource="starcarrental/Model/PaymentType.hbm.xml"/>
+    <mapping resource="starcarrental/Model/CarCategory.hbm.xml"/>
+    <mapping resource="starcarrental/Model/CarRentalManagement.hbm.xml"/>
     <mapping resource="starcarrental/Model/Payment.hbm.xml"/>
+    <mapping resource="starcarrental/Model/IdentificationType.hbm.xml"/>
+    <mapping resource="starcarrental/Model/UserCreditCard.hbm.xml"/>
+    <mapping resource="starcarrental/Model/CarDamageHistory.hbm.xml"/>
+    <mapping resource="starcarrental/Model/User.hbm.xml"/>
+    <mapping resource="starcarrental/Model/CreditCard.hbm.xml"/>
+    <mapping resource="starcarrental/Model/CarFeeByCategory.hbm.xml"/>
+    <mapping resource="starcarrental/Model/Store.hbm.xml"/>
+    <mapping resource="starcarrental/Model/UserIdification.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

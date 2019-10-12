@@ -61,19 +61,20 @@ public class LoginManagement {
         session = sesion.openSession();
         Transaction tx = session.beginTransaction();
         
-        // This isn't sql!
-        Query q = session.createQuery("FROM" +
-                                    "dbo.Store AS S " + 
-                                    "JOIN dbo.Employee AS E ON E.id_store = S.id " +
-                                    "JOIN dbo.[User] AS U ON E.id_user = U.id" +
-                                    "WHERE S.name ='" + store + "' and E.userName ='" + userName + "' and E.password = '" + password + "'");
+        // This is sql!
+        String sql = "SELECT " + 
+                        "E.* " +
+                        "FROM dbo.[User] AS U INNER JOIN dbo.Employee AS E ON E.id_user = U.id " +
+                        "INNER JOIN dbo.Store AS S ON E.id_store = S.id " +
+                        "WHERE S.name ='" + store + "' and U.userName ='" + userName + "' and U.password = '" + password + "'";
         
-        boolean matchUser = q.list().isEmpty();        
-        List<Store> StoreList = q.list();
+        Query q = session.createSQLQuery(sql);
+        List results = q.list();        
+        
         tx.commit();
         session.close();
         
-        return matchUser;        
+        return !results.isEmpty(); 
     }    
     
 }
