@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/10/2019 10:35:56 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="starcarrental.Model.CarRentalManagement" table="CarRentalManagement" schema="dbo" catalog="STAR_CAR_RENTAL" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="car" class="starcarrental.Model.Car" fetch="select">
+            <column name="id_carStore" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="starcarrental.Model.User" fetch="select">
+            <column name="id_user" not-null="true" />
+        </many-to-one>
+        <property name="quotationNumber" type="java.lang.Integer">
+            <column name="quotationNumber" />
+        </property>
+        <property name="quotationDate" type="timestamp">
+            <column name="quotationDate" length="27" />
+        </property>
+        <property name="quotationPrice" type="java.lang.Double">
+            <column name="quotationPrice" precision="53" scale="0" />
+        </property>
+        <property name="webQuotation" type="java.lang.Boolean">
+            <column name="webQuotation" />
+        </property>
+        <property name="bookNumber" type="java.lang.Integer">
+            <column name="bookNumber" />
+        </property>
+        <property name="rentalAgreementNumber" type="java.lang.Integer">
+            <column name="rentalAgreementNumber" />
+        </property>
+        <property name="expectedStartRent" type="timestamp">
+            <column name="expectedStartRent" length="27" />
+        </property>
+        <property name="startRent" type="timestamp">
+            <column name="startRent" length="27" />
+        </property>
+        <property name="expectedFinishRent" type="timestamp">
+            <column name="expectedFinishRent" length="27" />
+        </property>
+        <property name="finishRent" type="timestamp">
+            <column name="finishRent" length="27" />
+        </property>
+        <property name="startKm" type="java.lang.Double">
+            <column name="startKm" precision="53" scale="0" />
+        </property>
+        <property name="finishKm" type="java.lang.Double">
+            <column name="finishKm" precision="53" scale="0" />
+        </property>
+        <property name="petrol" type="java.lang.Double">
+            <column name="petrol" precision="53" scale="0" />
+        </property>
+        <property name="promotionalCode" type="string">
+            <column name="promotionalCode" length="1" />
+        </property>
+        <property name="excessReduction" type="java.lang.Boolean">
+            <column name="excessReduction" />
+        </property>
+        <property name="deposit" type="java.lang.Double">
+            <column name="deposit" precision="53" scale="0" />
+        </property>
+        <set name="payments" table="Payment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_carRentalManagement" not-null="true" />
+            </key>
+            <one-to-many class="starcarrental.Model.Payment" />
+        </set>
+        <set name="driverAlloweds" table="DriverAllowed" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_carRentalManagement" not-null="true" />
+            </key>
+            <one-to-many class="starcarrental.Model.DriverAllowed" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="StarCarRentalPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>RelationalModel.Payment</class>
+    <class>RelationalModel.CreditCardFranchise</class>
+    <class>RelationalModel.MaintenanceType</class>
+    <class>RelationalModel.CarMaintananceHistory</class>
+    <class>RelationalModel.Store</class>
+    <class>RelationalModel.EmployeeRol</class>
+    <class>RelationalModel.PaymentType</class>
+    <class>RelationalModel.Driver</class>
+    <class>RelationalModel.Car</class>
+    <class>RelationalModel.UserCreditCard</class>
+    <class>RelationalModel.CarCategory</class>
+    <class>RelationalModel.User</class>
+    <class>RelationalModel.DriverAllowed</class>
+    <class>RelationalModel.Campaing</class>
+    <class>RelationalModel.CarFeeByCategory</class>
+    <class>RelationalModel.CreditCard</class>
+    <class>RelationalModel.CarDamageHistory</class>
+    <class>RelationalModel.UserIdification</class>
+    <class>RelationalModel.IdentificationType</class>
+    <class>RelationalModel.StoreCampaing</class>
+    <class>RelationalModel.Employee</class>
+    <class>RelationalModel.CarRentalManagement</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://54.159.175.152\SQLEXPRESS:1433;databaseName=STAR_CAR_RENTAL"/>
+      <property name="javax.persistence.jdbc.user" value="aarcilam"/>
+      <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+      <property name="javax.persistence.jdbc.password" value="Pe3cOeh6lOL5"/>
+    </properties>
+  </persistence-unit>
+</persistence>

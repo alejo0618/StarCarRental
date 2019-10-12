@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/10/2019 10:35:56 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="starcarrental.Model.Payment" table="Payment" schema="dbo" catalog="STAR_CAR_RENTAL" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="carRentalManagement" class="starcarrental.Model.CarRentalManagement" fetch="select">
+            <column name="id_carRentalManagement" not-null="true" />
+        </many-to-one>
+        <many-to-one name="paymentType" class="starcarrental.Model.PaymentType" fetch="select">
+            <column name="id_typeOfPayment" not-null="true" />
+        </many-to-one>
+        <property name="paymentType_1" type="timestamp">
+            <column name="paymentType" length="27" />
+        </property>
+        <property name="amount" type="java.lang.Double">
+            <column name="amount" precision="53" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

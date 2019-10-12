@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/10/2019 10:35:56 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="starcarrental.Model.Driver" table="Driver" schema="dbo" catalog="STAR_CAR_RENTAL" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="lastName" not-null="true" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" not-null="true" />
+        </property>
+        <property name="dateOfBirth" type="date">
+            <column name="dateOfBirth" length="10" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" />
+        </property>
+        <property name="licenseNumber" type="string">
+            <column name="licenseNumber" not-null="true" />
+        </property>
+        <property name="licenseState" type="string">
+            <column name="licenseState" not-null="true" />
+        </property>
+        <set name="driverAlloweds" table="DriverAllowed" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_driver" not-null="true" />
+            </key>
+            <one-to-many class="starcarrental.Model.DriverAllowed" />
+        </set>
+    </class>
+</hibernate-mapping>

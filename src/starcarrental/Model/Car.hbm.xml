@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/10/2019 10:35:56 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="starcarrental.Model.Car" table="Car" schema="dbo" catalog="STAR_CAR_RENTAL" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="carCategory" class="starcarrental.Model.CarCategory" fetch="select">
+            <column name="id_carCategory" not-null="true" />
+        </many-to-one>
+        <many-to-one name="store" class="starcarrental.Model.Store" fetch="select">
+            <column name="id_store" not-null="true" />
+        </many-to-one>
+        <property name="brand" type="string">
+            <column name="brand" not-null="true" />
+        </property>
+        <property name="model" type="string">
+            <column name="model" length="30" not-null="true" />
+        </property>
+        <property name="modelYear" type="int">
+            <column name="modelYear" not-null="true" />
+        </property>
+        <property name="color" type="string">
+            <column name="color" not-null="true" />
+        </property>
+        <property name="doorsNumber" type="int">
+            <column name="doorsNumber" not-null="true" />
+        </property>
+        <property name="automaticTransmission" type="boolean">
+            <column name="automaticTransmission" not-null="true" />
+        </property>
+        <property name="seatingCapacity" type="int">
+            <column name="seatingCapacity" not-null="true" />
+        </property>
+        <property name="luggageCapacity" type="double">
+            <column name="luggageCapacity" precision="53" scale="0" not-null="true" />
+        </property>
+        <property name="diesel" type="boolean">
+            <column name="diesel" not-null="true" />
+        </property>
+        <property name="kmPerLitre" type="double">
+            <column name="kmPerLitre" precision="53" scale="0" not-null="true" />
+        </property>
+        <property name="ageRestrictions" type="int">
+            <column name="ageRestrictions" not-null="true" />
+        </property>
+        <property name="generalRestriction" type="string">
+            <column name="generalRestriction" length="4000" />
+        </property>
+        <property name="insuranceRestriction" type="string">
+            <column name="insuranceRestriction" length="4000" />
+        </property>
+        <property name="numberPlate" type="string">
+            <column name="numberPlate" length="25" not-null="true" />
+        </property>
+        <property name="available" type="boolean">
+            <column name="available" not-null="true" />
+        </property>
+        <property name="damaged" type="boolean">
+            <column name="damaged" not-null="true" />
+        </property>
+        <set name="carDamageHistories" table="CarDamageHistory" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_carStore" not-null="true" />
+            </key>
+            <one-to-many class="starcarrental.Model.CarDamageHistory" />
+        </set>
+        <set name="carRentalManagements" table="CarRentalManagement" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_carStore" not-null="true" />
+            </key>
+            <one-to-many class="starcarrental.Model.CarRentalManagement" />
+        </set>
+        <set name="carMaintananceHistories" table="CarMaintananceHistory" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_CarStore" not-null="true" />
+            </key>
+            <one-to-many class="starcarrental.Model.CarMaintananceHistory" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/10/2019 10:35:56 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="starcarrental.Model.CarFeeByCategory" table="CarFeeByCategory" schema="dbo" catalog="STAR_CAR_RENTAL" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="carCategory" class="starcarrental.Model.CarCategory" fetch="select">
+            <column name="id_category" not-null="true" />
+        </many-to-one>
+        <many-to-one name="store" class="starcarrental.Model.Store" fetch="select">
+            <column name="id_store" not-null="true" />
+        </many-to-one>
+        <property name="dailyCharge" type="double">
+            <column name="dailyCharge" precision="53" scale="0" not-null="true" />
+        </property>
+        <property name="weeklyCharge" type="java.lang.Double">
+            <column name="weeklyCharge" precision="53" scale="0" />
+        </property>
+        <property name="weekendCharge" type="java.lang.Double">
+            <column name="weekendCharge" precision="53" scale="0" />
+        </property>
+        <property name="addKmCharge" type="java.lang.Double">
+            <column name="addKmCharge" precision="53" scale="0" />
+        </property>
+        <property name="totalPerCategory" type="java.lang.Double">
+            <column name="totalPerCategory" precision="53" scale="0" />
+        </property>
+        <property name="rentedPerCategory" type="java.lang.Double">
+            <column name="rentedPerCategory" precision="53" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

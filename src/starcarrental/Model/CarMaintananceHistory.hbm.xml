@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/10/2019 10:35:56 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="starcarrental.Model.CarMaintananceHistory" table="CarMaintananceHistory" schema="dbo" catalog="STAR_CAR_RENTAL" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="car" class="starcarrental.Model.Car" fetch="select">
+            <column name="id_CarStore" not-null="true" />
+        </many-to-one>
+        <many-to-one name="maintenanceType" class="starcarrental.Model.MaintenanceType" fetch="select">
+            <column name="id_maintanceType" not-null="true" />
+        </many-to-one>
+        <property name="idEmployee" type="int">
+            <column name="id_employee" not-null="true" />
+        </property>
+        <property name="orderNumber" type="int">
+            <column name="orderNumber" not-null="true" />
+        </property>
+        <property name="startDate" type="timestamp">
+            <column name="startDate" length="27" />
+        </property>
+        <property name="finishDate" type="timestamp">
+            <column name="finishDate" length="27" />
+        </property>
+        <property name="notes" type="string">
+            <column name="notes" />
+        </property>
+        <property name="completed" type="boolean">
+            <column name="completed" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

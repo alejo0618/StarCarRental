@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/10/2019 10:35:56 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="starcarrental.Model.CreditCard" table="CreditCard" schema="dbo" catalog="STAR_CAR_RENTAL" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="creditCardFranchise" class="starcarrental.Model.CreditCardFranchise" fetch="select">
+            <column name="id_creditCardFranchise" not-null="true" />
+        </many-to-one>
+        <property name="cardNumber" type="string">
+            <column name="cardNumber" length="25" not-null="true" />
+        </property>
+        <property name="cardHolder" type="string">
+            <column name="cardHolder" not-null="true" />
+        </property>
+        <property name="expirationDate" type="date">
+            <column name="expirationDate" length="10" not-null="true" />
+        </property>
+        <property name="ccv" type="string">
+            <column name="ccv" length="5" not-null="true" />
+        </property>
+        <set name="userCreditCards" table="UserCreditCard" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_creditCard" />
+            </key>
+            <one-to-many class="starcarrental.Model.UserCreditCard" />
+        </set>
+    </class>
+</hibernate-mapping>

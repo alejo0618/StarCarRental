@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/10/2019 10:35:56 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="starcarrental.Model.StoreCampaing" table="StoreCampaing" schema="dbo" catalog="STAR_CAR_RENTAL" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="campaing" class="starcarrental.Model.Campaing" fetch="select">
+            <column name="id_Campaing" not-null="true" />
+        </many-to-one>
+        <many-to-one name="store" class="starcarrental.Model.Store" fetch="select">
+            <column name="id_store" not-null="true" />
+        </many-to-one>
+        <property name="idCategory" type="int">
+            <column name="id_category" not-null="true" />
+        </property>
+        <property name="startDate" type="date">
+            <column name="startDate" length="10" not-null="true" />
+        </property>
+        <property name="finishDate" type="date">
+            <column name="finishDate" length="10" not-null="true" />
+        </property>
+        <property name="discount" type="double">
+            <column name="discount" precision="53" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

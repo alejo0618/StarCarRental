@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/10/2019 10:35:56 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="starcarrental.Model.Store" table="Store" schema="dbo" catalog="STAR_CAR_RENTAL" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" not-null="true" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" not-null="true" />
+        </property>
+        <property name="subUrb" type="string">
+            <column name="subUrb" not-null="true" />
+        </property>
+        <property name="zipcode" type="string">
+            <column name="zipcode" length="10" not-null="true" />
+        </property>
+        <property name="estate" type="string">
+            <column name="estate" length="20" not-null="true" />
+        </property>
+        <set name="cars" table="Car" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_store" not-null="true" />
+            </key>
+            <one-to-many class="starcarrental.Model.Car" />
+        </set>
+        <set name="storeCampaings" table="StoreCampaing" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_store" not-null="true" />
+            </key>
+            <one-to-many class="starcarrental.Model.StoreCampaing" />
+        </set>
+        <set name="carFeeByCategories" table="CarFeeByCategory" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_store" not-null="true" />
+            </key>
+            <one-to-many class="starcarrental.Model.CarFeeByCategory" />
+        </set>
+        <set name="employees" table="Employee" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_store" not-null="true" />
+            </key>
+            <one-to-many class="starcarrental.Model.Employee" />
+        </set>
+    </class>
+</hibernate-mapping>
