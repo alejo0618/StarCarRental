@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Documents/NetBeansProjects/StarCarRental/src/starcarrental/Model/Employee.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/StarCarRental/src/starcarrental/View/Login.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/StarCarRental/src/starcarrental/Controller/CarManagement.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/StarCarRental/src/starcarrental/Controller/LoginManagement.java</file>
+            <file>file:/C:/GitHub/StarCarRental/src/starcarrental/View/CarManagement.java</file>
+            <file>file:/C:/GitHub/StarCarRental/src/starcarrental/View/Login.java</file>
+            <file>file:/C:/GitHub/StarCarRental/src/starcarrental/StarCarRental.java</file>
+            <file>file:/C:/GitHub/StarCarRental/src/starcarrental/Controller/LoginManagement.java</file>
+            <file>file:/C:/GitHub/StarCarRental/src/starcarrental/Controller/ControlCarManagement.java</file>
         </group>
     </open-files>
 </project-private>

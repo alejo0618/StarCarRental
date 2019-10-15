@@ -200,13 +200,19 @@ public class Login extends javax.swing.JFrame {
         // Testing
         System.out.println(storeVal + " - " + userVal + " - " + passwordVal);
 
-        // Checking if both parameters are equal
-        //if (passwordVal.equals("SomePassord"))
+        // Checking if all the parameters are equal        
         if (LoginManagement.validateUser(storeVal, userVal, passwordVal) == true)
         {
-            //Everything is OK
-            this.setVisible(false);
-            new CarManagement().setVisible(true);
+            //Everything is OK, we can close log in interface
+            this.setVisible(false);       
+            
+            // Now, we can open the car management interface
+            CarManagement carManagement =  new CarManagement();
+            carManagement.setLocationRelativeTo(null);
+            carManagement.setResizable(false);
+            carManagement.setVisible(true);            
+            
+            // Cleaning
             dispose();
 
         }
