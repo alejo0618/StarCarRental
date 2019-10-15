@@ -61,6 +61,7 @@ public class CarManagement extends javax.swing.JFrame {
         Vector<String> tableHeaders = new Vector<String>();
         Vector tableData = new Vector();
         
+        tableHeaders.add("id");
         tableHeaders.add("brand"); 
         tableHeaders.add("category");
         tableHeaders.add("modelYear");
@@ -82,6 +83,7 @@ public class CarManagement extends javax.swing.JFrame {
         for(Object o : cars) {
             Car car = (Car)o;
             Vector<Object> oneRow = new Vector<Object>();
+            oneRow.add(car.getId());
             oneRow.add(car.getBrand());            
             oneRow.add(car.getCarCategory().getName());
             oneRow.add(car.getModelYear());            
@@ -123,8 +125,8 @@ public class CarManagement extends javax.swing.JFrame {
         jLabelBrand = new javax.swing.JLabel();
         jLabelCategory = new javax.swing.JLabel();
         jComboBoxCategory = new javax.swing.JComboBox();
-        jButtonSendQuotation = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButtonDeleteCar = new javax.swing.JButton();
+        jButtonNewCar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -150,6 +152,11 @@ public class CarManagement extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTableCarManagement);
 
         jButtonBook.setText("Book Car");
+        jButtonBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBookActionPerformed(evt);
+            }
+        });
 
         jComboBoxBrand.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "All" }));
         jComboBoxBrand.addActionListener(new java.awt.event.ActionListener() {
@@ -169,9 +176,19 @@ public class CarManagement extends javax.swing.JFrame {
             }
         });
 
-        jButtonSendQuotation.setText("Send Quotation");
+        jButtonDeleteCar.setLabel("Delete Car");
+        jButtonDeleteCar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteCarActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Update Information");
+        jButtonNewCar.setText("New base Car");
+        jButtonNewCar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNewCarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -193,9 +210,9 @@ public class CarManagement extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jButtonNewCar)
                 .addGap(18, 18, 18)
-                .addComponent(jButtonSendQuotation)
+                .addComponent(jButtonDeleteCar)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonBook))
         );
@@ -213,8 +230,8 @@ public class CarManagement extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonBook)
-                    .addComponent(jButtonSendQuotation)
-                    .addComponent(jButton1)))
+                    .addComponent(jButtonDeleteCar)
+                    .addComponent(jButtonNewCar)))
         );
 
         jLabel1.setText("Employee:");
@@ -263,6 +280,42 @@ public class CarManagement extends javax.swing.JFrame {
         // TODO add your handling code here:
         refreshTable(1,jComboBoxBrand.getSelectedItem().toString(),jComboBoxBrand.getSelectedItem().toString());
     }//GEN-LAST:event_jComboBoxBrandActionPerformed
+    
+    // Method to uptade information    
+    private void jButtonBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBookActionPerformed
+        
+        int row = jTableCarManagement.getSelectedRow();
+        int column = jTableCarManagement.getSelectedColumn();
+
+        String id_car = jTableCarManagement.getValueAt(row, 0).toString();
+
+
+        ControlCarManagement.updateInformation(id_car);
+
+        refreshTable(1,jComboBoxBrand.getSelectedItem().toString(),jComboBoxBrand.getSelectedItem().toString());
+        
+    }//GEN-LAST:event_jButtonBookActionPerformed
+
+    private void jButtonNewCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNewCarActionPerformed
+        // TODO add your handling code here:
+        ControlCarManagement.newCar(this.storeID);
+        refreshTable(1,jComboBoxBrand.getSelectedItem().toString(),jComboBoxBrand.getSelectedItem().toString());
+    }//GEN-LAST:event_jButtonNewCarActionPerformed
+
+    private void jButtonDeleteCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteCarActionPerformed
+        // TODO add your handling code here:
+        
+        int row = jTableCarManagement.getSelectedRow();
+        int column = jTableCarManagement.getSelectedColumn();
+        String id_car = jTableCarManagement.getValueAt(row, 0).toString();
+
+
+        ControlCarManagement.deleteInformation(id_car);
+        refreshTable(1,jComboBoxBrand.getSelectedItem().toString(),jComboBoxBrand.getSelectedItem().toString());
+                
+        
+        
+    }//GEN-LAST:event_jButtonDeleteCarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -300,9 +353,9 @@ public class CarManagement extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonBook;
-    private javax.swing.JButton jButtonSendQuotation;
+    private javax.swing.JButton jButtonDeleteCar;
+    private javax.swing.JButton jButtonNewCar;
     private javax.swing.JComboBox jComboBoxBrand;
     private javax.swing.JComboBox jComboBoxCategory;
     private javax.swing.JLabel jLabel1;

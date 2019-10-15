@@ -81,9 +81,9 @@
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonNewCar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButtonSendQuotation" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonDeleteCar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jButtonBook" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -104,8 +104,8 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButtonBook" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonSendQuotation" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonDeleteCar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonNewCar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -140,6 +140,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Book Car"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBookActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="jComboBoxBrand">
           <Properties>
@@ -175,15 +178,21 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxCategoryActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonSendQuotation">
+        <Component class="javax.swing.JButton" name="jButtonDeleteCar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Send Quotation"/>
+            <Property name="label" type="java.lang.String" value="Delete Car"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDeleteCarActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="jButtonNewCar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Update Information"/>
+            <Property name="text" type="java.lang.String" value="New base Car"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonNewCarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

@@ -86,4 +86,63 @@ public class ControlCarManagement {
         return CarList;
     
     }
+    
+    public static void updateInformation(String id_car)
+    {
+           
+        SessionFactory sesion = HibernateUtil.getSessionFactory();
+        Session session;
+        session = sesion.openSession();
+        Transaction tx = session.beginTransaction();
+        
+        // This is sql!
+        String sql = "UPDATE C set C.available = 0 FROM dbo.car C WHERE C.ID = " + id_car;
+        
+        Query q = session.createSQLQuery(sql);
+        q.executeUpdate();
+        tx.commit();
+        session.close();        
+        
+       
+    }   
+
+    public static void deleteInformation(String id_car)
+    {
+           
+        SessionFactory sesion = HibernateUtil.getSessionFactory();
+        Session session;
+        session = sesion.openSession();
+        Transaction tx = session.beginTransaction();
+        
+        // This is sql!
+        String sql = "DELETE C FROM dbo.car C WHERE C.ID = " + id_car;
+        
+        Query q = session.createSQLQuery(sql);
+        q.executeUpdate();
+        tx.commit();
+        session.close();        
+        
+       
+    } 
+
+    public static void newCar(int storeID)
+    {
+           
+        SessionFactory sesion = HibernateUtil.getSessionFactory();
+        Session session;
+        session = sesion.openSession();
+        Transaction tx = session.beginTransaction();
+        
+        // This is sql!
+        String sql = "INSERT INTO [STAR_CAR_RENTAL].[dbo].[Car] ([id_store], [id_carCategory], [brand], [model], [modelYear], [color], [doorsNumber], [automaticTransmission], [seatingCapacity], [luggageCapacity], [diesel], [kmPerLitre], [ageRestrictions], [generalRestriction], [insuranceRestriction], [numberPlate], [available], [damaged]) VALUES ('1', '5', 'Hyundai', 'iMax', '2020', 'White', '4', '1', '9', '845', '0', '9', '20', '', '', 'NSW-0000', '1', '0')";
+        
+        Query q = session.createSQLQuery(sql);
+        q.executeUpdate();
+        tx.commit();
+        session.close();        
+        
+    } 
+    
+    
+    
 }
